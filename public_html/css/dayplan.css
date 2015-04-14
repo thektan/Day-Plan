@@ -1,0 +1,120 @@
+/* 
+    Created on : Apr 13, 2015, 3:54:22 PM
+    Author     : KTAN
+
+    Colors: Yellow #FFC000
+            Blue
+            Gray   #8E8E8E
+*/
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Karla;
+    font-weight: 400;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.logo {
+    display: block;
+    font-size: 24px;
+    color: #FFC000;
+    line-height: 28px;
+    margin: 15px 0;
+    text-align: center;
+    text-decoration: none;
+}
+
+h2 {
+    font-size: 18px;
+    color: #8E8E8E;
+    line-height: 22px;
+    font-weight: 400;
+}
+
+
+/* Guide panel 
+------------------------------------------*/
+.guide-panel {
+    display: block;
+    position: absolute;
+    text-align: center;
+    width: 800px;
+    height: 215px;
+    left: 50%;
+    margin-left: -400px;
+    top: 50%;
+    margin-top: -108px;
+}
+
+#guide-step-1.guide-panel input,
+#guide-step-2.guide-panel input {
+    border: 0;
+    background-color: transparent;
+    font-family: Karla-Bold;
+    font-size: 60px;
+    color: #2C67D2;
+    line-height: 70px;
+    text-align: center;
+}
+
+#guide-step-1.guide-panel input:focus,
+#guide-step-2.guide-panel input:focus {
+    outline: 0;
+}
+
+::-webkit-input-placeholder {
+   color: #2C67D2;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #2C67D2;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #2C67D2; 
+}
+
+:-ms-input-placeholder {  
+   color: #2C67D2;
+}
+
+.button {
+    display: block;
+    font-family: Karla;
+    font-size: 18px;
+    color: #FFC000;
+    line-height: 40px;
+    border: 2px solid #FFC000;
+    border-radius: 5px;
+    text-align: center;
+    width: 110px;
+    height: 42px;
+    margin: 25px auto 0 auto;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-image: linear-gradient(-180deg, #F7D156 5%, #F7B41C 100%);
+    color: #FFFFFF;
+}
+
+#footer {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    height: 40px;
+}
+
+.footer-link {
+    font-family: Karla-Regular;
+    font-size: 16px;
+    color: #C8C8C8;
+    line-height: 19px;
+    margin: 20px 40px;
+}
