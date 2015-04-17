@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <title>Day Plan</title>
@@ -21,16 +16,21 @@ and open the template in the editor.
     <body>
         <a href="/" class="logo">Day Plan</a>
         
+        <div id="definedEvent">
+            <h1 id="definedEventName"></h1>
+            <h2 id="definedEventDate"></h2>
+        </div>
+        
         <div id="guide-step-1" class="guide-panel">
             <h2>(1/3) Let's get started by naming the event:</h2>
             <input id="eventName" type="text" placeholder="Your Event Name">
-            <a href="#" id="button-step-1" class="button">Next</a>
+            <br/><a href="#" id="button-step-1" class="button">Next</a>
         </div>
         
         <div id="guide-step-2" class="guide-panel">
             <h2>(2/3) Enter in the date of the event:</h2>
             <input id="eventDate" type="text" placeholder="April 13, 2015">
-            <a href="#" id="button-step-2" class="button">Next</a>
+            <br/><a href="#" id="button-step-2" class="button">Next</a>
         </div>
         
         <div id="guide-step-3" class="guide-panel">
@@ -39,7 +39,7 @@ and open the template in the editor.
             <h3>Location</h3><input id="activityLocation" type="text">
             <h3>Start Time</h3><input id="activityStart" type="text">
             <h3>End Time</h3><input id="activityEnd" type="text">
-            <a href="#" id="button-step-3" class="button">Finish</a>
+            <br/><a href="#" id="button-step-3" class="button">Finish</a>
         </div>
         
         <div id="footer">

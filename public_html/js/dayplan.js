@@ -12,7 +12,7 @@ $(document).ready(function ()
     $("#guide-step-2").hide();
     $("#guide-step-3").hide();
     
-    var eventObject, activityObject;
+    var eventObject, activityObject, definedEventName, definedEventDate;
     
     /* Guide actions
      * ----------------------------------- */
@@ -23,6 +23,9 @@ $(document).ready(function ()
         // Set the event name.
         eventObject.set("name", document.getElementById("eventName").value);
         
+        // Save the event name to display later.
+        definedEventName = document.getElementById("eventName").value;
+        
         // UI Effects.
         $("#guide-step-1").hide();
         $("#guide-step-2").show();
@@ -32,9 +35,17 @@ $(document).ready(function ()
         // Set the event date.
         eventObject.set("date", document.getElementById("eventDate").value);
         
+        // Save the event date to display later.
+        definedEventDate = document.getElementById("eventDate").value;
+        
+        // Add Event Name and Date to Step 3 of the guide.
+        $('#definedEventName').html(definedEventName);
+        $('#definedEventDate').html(definedEventDate);
+        
         // UI Effects.
         $("#guide-step-2").hide();
         $("#guide-step-3").show();
+        
     });
     
     $("#button-step-3").click(function() { 
