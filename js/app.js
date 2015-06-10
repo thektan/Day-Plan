@@ -3,7 +3,7 @@
 
   app.directive("newActivityModal", function() {
     return {
-      restrict: 'E',
+      restrict: 'A',
       templateUrl: "new-activity-modal.html"
     };
   });
