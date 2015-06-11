@@ -19,7 +19,7 @@
       otherwise({
         redirectTo: '/'
       });
-      
+
     /*$locationProvider.html5Mode(true);*/
   }]);
 
@@ -51,12 +51,9 @@
 
           eventObject.save(null, {
             success: function(eventObject) {
-              // Execute any logic that should take place after the object is saved.
-              window.location = "/" + eventObject.id;
+              window.location = "/#/event/" + eventObject.id;
             },
             error: function(eventObject, error) {
-              // Execute any logic that should take place if the save fails.
-              // error is a Parse.Error with an error code and message.
               alert('Failed to create new object, with error code: ' + error.message);
             }
           });
@@ -68,8 +65,20 @@
   });
 
   app.controller('EventController', function($scope, $routeParams) {
-    $scope.name = "test";
-    $scope.params = $routeParams;
+    $scope.eventObjectId = $routeParams.eventId;
+    $scope.eventObjectName = "";
+
+    var query = new Parse.Query(Event);
+    query.get($scope.eventObjectId, {
+      success: function(eventObject) {
+        $scope.eventObjectName = eventObject.get("name");
+        $scope.eventObjectDate = eventObject.get("date");
+        $scope.$apply();
+      },
+      error: function(object, error) {
+        alert('Failed to retrieve event ' + error.message);
+      }
+    });
   });
 
 
