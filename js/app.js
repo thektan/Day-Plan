@@ -10,21 +10,21 @@
   app.directive("navigationBar", function() {
     return {
       restrict: "A",
-      templateUrl: "template/navigation-bar.html"
+      templateUrl: "partials/navigation-bar.html"
     };
   });
 
   app.directive("newActivityModal", function() {
     return {
       restrict: "A",
-      templateUrl: "template/new-activity-modal.html"
+      templateUrl: "partials/new-activity-modal.html"
     };
   });
 
   app.directive("newEventForm", function() {
     return {
       restrict: "A",
-      templateUrl: "template/new-event-form.html",
+      templateUrl: "partials/new-event-form.html",
       controller: function() {
         /* Creates a new event and persists it into the database. */
         this.addEvent = function(event) {
