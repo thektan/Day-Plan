@@ -5,7 +5,23 @@
   var Activity = Parse.Object.extend("Activity");
 
   /* Angular */
-  var app = angular.module('dayPlan', []);
+  var app = angular.module('dayPlan', ['ngRoute']);
+
+  app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+    $routeProvider.
+      when('/', {
+        templateUrl: '/partials/home.html'
+      }).
+      when('/event/:eventId', {
+        templateUrl: '/partials/event.html',
+        controller: 'EventController'
+      }).
+      otherwise({
+        redirectTo: '/'
+      });
+      
+    /*$locationProvider.html5Mode(true);*/
+  }]);
 
   app.directive("navigationBar", function() {
     return {
@@ -36,7 +52,7 @@
           eventObject.save(null, {
             success: function(eventObject) {
               // Execute any logic that should take place after the object is saved.
-              alert('New object created with objectId: ' + eventObject.id);
+              window.location = "/" + eventObject.id;
             },
             error: function(eventObject, error) {
               // Execute any logic that should take place if the save fails.
@@ -49,6 +65,11 @@
       },
       controllerAs: "eventFormCtrl"
     };
+  });
+
+  app.controller('EventController', function($scope, $routeParams) {
+    $scope.name = "test";
+    $scope.params = $routeParams;
   });
 
 
