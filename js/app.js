@@ -47,7 +47,7 @@
 
         };
       },
-      controllerAs: "eventCtrl"
+      controllerAs: "eventFormCtrl"
     };
   });
 
