@@ -109,17 +109,49 @@
     $scope.eventObjectName = "";
 
     // Retrieve the event using the id from the Parse database.
-    var query = new Parse.Query(Event);
-    query.get($scope.eventObjectId, {
+    var eventQuery = new Parse.Query(Event);
+    eventQuery.get($scope.eventObjectId, {
       success: function(eventObject) {
         $scope.eventObjectName = eventObject.get("name");
         $scope.eventObjectDate = eventObject.get("date");
         $scope.$apply();
+
+        // Retrieve the activies related to the event.
+        var activityQuery = new Parse.Query(Activity);
+        activityQuery.equalTo("parent", eventObject);
+        activityQuery.find({
+          success: function(results) {
+            // Create empty list of activities.
+            var activityList = [];
+
+            // Loop through the results, create activity objects,
+            // and push them onto the array of activities.
+            for (var i = 0; i < results.length; i++) { 
+              var object = results[i];
+              activityList.push({
+                "name": object.get("name"),
+                "start": object.get("start"),
+                "end": object.get("end")
+              });
+            }
+
+            // Attach list of the controller to make accessible.
+            $scope.activities = activityList;
+            $scope.$apply();
+          },
+          error: function(error) {
+            alert("Error: " + error.code + " " + error.message);
+          }
+        }); // end activityQuery.find
       },
       error: function(object, error) {
         alert('Failed to retrieve event ' + error.message);
       }
     });
+
+    
+
+
   });
 
 
