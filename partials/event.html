@@ -6,16 +6,20 @@
 <h1>{{eventObjectName}}</h1>
 <h5>{{eventObjectDate | date}}</h5>
 
-<ol>
-	<div ng-repeat="activity in activities">
-		<li>
-			<ul>
-				<li>Name: {{activity.name}}</li>
-				<li>Location: {{activity.location}}</li>
-				<li>Start: {{activity.start | date:'HH:mm'}}</li>
-				<li>End:{{activity.end | date:'HH:mm'}}</li>
-				<li>Description: {{activity.description}}</li>
-			</ul>
-		</li>
+<br/>
+<br/>
+
+<div ng-repeat="activity in activities">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">
+				{{activity.name}}
+				<p class="text-right" style="float:right">{{activity.start | date:'HH:mm'}} - {{activity.end | date:'HH:mm'}}</p>
+			</h3>
+			at {{activity.location}}
+		</div>
+		<div class="panel-body">
+			{{activity.description}}
+		</div>
 	</div>
-</ol>
+</div>
