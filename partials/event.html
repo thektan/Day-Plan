@@ -6,12 +6,16 @@
 <h1>{{eventObjectName}}</h1>
 <h5>{{eventObjectDate | date}}</h5>
 
-<ul>
-<div ng-repeat="activity in activities">
-<li>
-	Name: {{activity.name}}, 
-	Start: {{activity.start | date:'HH:mm'}}, 
-	End:{{activity.end | date:'HH:mm'}}
-</li>
-</div>
-</ul>
+<ol>
+	<div ng-repeat="activity in activities">
+		<li>
+			<ul>
+				<li>Name: {{activity.name}}</li>
+				<li>Location: {{activity.location}}</li>
+				<li>Start: {{activity.start | date:'HH:mm'}}</li>
+				<li>End:{{activity.end | date:'HH:mm'}}</li>
+				<li>Description: {{activity.description}}</li>
+			</ul>
+		</li>
+	</div>
+</ol>

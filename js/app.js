@@ -157,8 +157,10 @@
                 var object = results[i];
                 activityList.push({
                   "name": object.get("name"),
+                  "location": object.get("location"),
                   "start": object.get("start"),
-                  "end": object.get("end")
+                  "end": object.get("end"),
+                  "description": object.get("description")
                 });
               }
 
