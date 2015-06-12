@@ -7,11 +7,17 @@
         <h4 class="modal-title">Create a new activity</h4>
       </div>
 
-      <form name="activityForm" ng-submit="activityFormCtrl.addActivity(activityFormCtrl.activity, eventObjectId)">
+      <form name="activityForm" 
+        ng-submit="activityFormCtrl.addActivity(activityFormCtrl.activity, eventObjectId);
+                   getActivites(eventObjectId)">
         <div class="modal-body">
           <div class="form-group">
             <label for="activityName">Activity Name</label>
             <input ng-model="activityFormCtrl.activity.name" type="text" class="form-control input-lg" id="activityName" placeholder="Enter activity name">
+          </div>
+          <div class="form-group">
+            <label for="activityLocation">Activity Location</label>
+            <input ng-model="activityFormCtrl.activity.location" type="text" class="form-control" id="activityLocation" placeholder="Enter activity location">
           </div>
           <div class="form-group">
             <label for="activityStart">Start Time</label>
@@ -20,6 +26,10 @@
           <div class="form-group">
             <label for="activityEnd">End Time</label>
             <input ng-model="activityFormCtrl.activity.end" type="time" class="form-control" id="activityEnd">
+          </div>
+          <div class="form-group">
+            <label for="activityDescription">Description</label>
+            <textarea ng-model="activityFormCtrl.activity.description" rows="3" class="form-control" id="activityDescription" placeholder="Enter description here"></textarea>
           </div>
         </div>
 
