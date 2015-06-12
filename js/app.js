@@ -62,7 +62,13 @@
               alert('Failed to create new object, with error code: ' + error.message);
             }
           });
+        };
 
+        /*
+          Resets the form.
+        */
+        this.resetForm = function() {
+          activityForm.reset();
         };
       },
       controllerAs: "activityFormCtrl"
