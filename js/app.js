@@ -1,20 +1,27 @@
 (function() {
-  /* Parse Setup 
+  /* Parse Setup
   --------------------------------------------------------- */
   Parse.initialize("HkKD0qeE7y93LaBTO7lL2IIGbJVitPImljl5b3cV", "AMsA3zfBrUo78H3yFI63tuHWAZ5Ttr2KLbquFQQi");
   var Event = Parse.Object.extend("Event");
   var Activity = Parse.Object.extend("Activity");
 
-  /* Angular 
+  /* Angular
   --------------------------------------------------------- */
   var app = angular.module('dayPlan', ['ngRoute']);
 
-  /* Routing 
+  /* Routing
   --------------------------------------------------------- */
   app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+    // $locationProvider.html5Mode(true);
+    // $locationProvider.hashPrefix('!');
+
     $routeProvider.
       when('/', {
         templateUrl: '/partials/home.html'
+      }).
+      when('/event', {
+        templateUrl: '/partials/event.html',
+        controller: 'EventController'
       }).
       when('/event/:eventId', {
         templateUrl: '/partials/event.html',
@@ -23,20 +30,25 @@
       otherwise({
         redirectTo: '/'
       });
-
-    /*$locationProvider.html5Mode(true);*/
   }]);
 
-  /* Navigation Bar Partial 
+  /* Navigation Bar Partial
   --------------------------------------------------------- */
-  app.directive("navigationBar", function() {
+  app.directive("navigationBarHome", function() {
     return {
       restrict: "A",
-      templateUrl: "partials/navigation-bar.html"
+      templateUrl: "partials/navigation-bar-home.html"
     };
   });
 
-  /* New Activity Popup 
+  app.directive("navigationBarEvent", function() {
+    return {
+      restrict: "A",
+      templateUrl: "partials/navigation-bar-event.html"
+    };
+  });
+
+  /* New Activity Popup
   --------------------------------------------------------- */
   app.directive("newActivityModal", function() {
     return {
@@ -82,7 +94,7 @@
     };
   });
 
-  /* New Event Form 
+  /* New Event Form
   --------------------------------------------------------- */
   app.directive("newEventForm", function() {
     return {
@@ -111,7 +123,7 @@
     };
   });
 
-  /* Controller for the event page 
+  /* Controller for the event page
   --------------------------------------------------------- */
   app.controller('EventController', function($scope, $routeParams) {
     $scope.eventObjectId = $routeParams.eventId; // Get the event id.
@@ -153,7 +165,7 @@
 
               // Loop through the results, create activity objects,
               // and push them onto the array of activities.
-              for (var i = 0; i < results.length; i++) { 
+              for (var i = 0; i < results.length; i++) {
                 var object = results[i];
                 activityList.push({
                   "name": object.get("name"),
